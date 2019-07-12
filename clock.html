@@ -39,7 +39,7 @@ function drawScene() { // main drawScene function
 	var tmpHours = currentDate.getHours();
 	var time_zone = -date_zone.getTimezoneOffset() / 60;
 	//小于0是西区 西区应该用时区绝对值加京八区 重新设置时间（西区时间比东区时间早 所以加时区间隔）
-	if(time_zone < 0){
+	if(time_zone <= 0){
 		time_zone = Math.abs(time_zone) + 8;
 		currentDate.setHours(tmpHours + time_zone);
 		
