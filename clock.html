@@ -34,8 +34,15 @@ function drawScene() { // main drawScene function
 	hours = hours > 12 ? hours - 12 : hours;
 	var hour = hours + minutes / 60;
 	var minute = minutes + seconds / 60;
-	if(date.getTimezoneOffset()!=-480){
-		date  = date+date.getTimezoneOffset();
+	var time_zone = -date.getTimezoneOffset() / 60;
+	//小于0是西区 西区应该用时区绝对值加京八区 重新设置时间（西区时间比东区时间早 所以加时区间隔）
+	if(time_zone < 0){
+		time_zone = Math.abs(time_zone) + 8;
+		var hours = date.getHours()+time_zone;
+	}else{
+		 //大于0的是东区  东区时间直接跟京八区相减
+		 time_zone -= 8;
+		 var hours = date.getHours()-time_zone;
 	}
 	document.getElementById("calander").innerHTML =date;
 	// save current context
