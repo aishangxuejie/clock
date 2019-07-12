@@ -37,6 +37,7 @@ function drawScene() { // main drawScene function
 	if(date.getTimezoneOffset()!=-480){
 		date  = date+date.getTimezoneOffset();
 	}
+	document.getElementById("calander").innerHTML =date;
 	// save current context
 	ctx.save();
 
@@ -119,6 +120,7 @@ clockImage.src = 'https://static.runoob.com/images/mix/125855_nnla_89964.png';
 	</header>
 	<div class="clocks">
 		<canvas id="canvas" width="400" height="400"></canvas>
+		<p id = "calander"></p>
 	</div>
 	</body>
 </html>
