@@ -34,7 +34,9 @@ function drawScene() { // main drawScene function
 	hours = hours > 12 ? hours - 12 : hours;
 	var hour = hours + minutes / 60;
 	var minute = minutes + seconds / 60;
-	alert(date+hours+minutes);
+	if(date.getTimezoneOffset()!=-480){
+		date  = new date(Date.now()+ + (8 * 60 * 60 * 1000))
+	}
 	// save current context
 	ctx.save();
 
