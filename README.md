@@ -1,2 +1,0 @@
-# life
-add clock
